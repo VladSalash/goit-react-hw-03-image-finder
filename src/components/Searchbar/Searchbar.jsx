@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+
 // Toaster
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
