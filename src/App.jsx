@@ -3,6 +3,9 @@ import { AppStyled } from './App.styled'
 // toast
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+// Scroll
+import { animateScroll as Scroll } from 'react-scroll';
 // API
 import * as API from 'components/API/API.js'
 // components
@@ -21,9 +24,7 @@ export class App extends Component {
     error:null,
     page: 1,
     status: "idle",
-    totalHits: null,
     largeImage: '',
-    loader: false,
     showModal:false,
 }
 
@@ -59,6 +60,9 @@ fetchRequest = async () => {
         searchResults: [...prevState.searchResults, ...result],
         status: 'resolved',
       }));
+
+         Scroll.scrollToBottom();
+
        if (page === 1) {
         return toast.success(`Enjoy`);
       }
@@ -67,17 +71,14 @@ fetchRequest = async () => {
        this.setState({ error, status: 'rejected' });
       return toast.error(`Whoops something went wrong, please try again later`);
     } finally {
-       this.setState({ loader: false });
+      //  this.setState({ loader: false });
     }
 
 }
 
 
 
-  onImgClick = event => {
-    this.toggleModal();
-    this.setState({ largeImage: event})
-  }
+
 
   submitResultsForm = keyWord => {
     if (this.state.keyWord !== keyWord) {
@@ -100,7 +101,16 @@ fetchRequest = async () => {
     this.setState(({ showModal }) => ({
       showModal: !showModal
     }))
-  }
+    }
+
+   onImgClick = event => {
+    this.toggleModal();
+    this.setState({ largeImage: event})
+   }
+
+    scrollToBottom = () => {
+    Scroll.scrollToBottom();
+  };
 
 
 

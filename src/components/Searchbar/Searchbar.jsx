@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 // Toaster
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,6 +11,10 @@ class Searchbar extends Component {
   state = {
     category: '',
   }
+
+   static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+  };
 
    handleChange = event => {
      this.setState({ category: event.currentTarget.value.toLowerCase() });
@@ -45,7 +49,9 @@ class Searchbar extends Component {
     <Input
            value={category}
            onChange={this.handleChange}
-      type="text"
+           type="text"
+           autoComplete="off"
+            autoFocus
       placeholder="Search images and photos"
          />
          <Button type="submit" >
