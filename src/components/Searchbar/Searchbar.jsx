@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { Header, Form, Button, ButtonLabel, Input } from './Searchbar.styled';
+
 // Toaster
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-import { Header, Form, Button, ButtonLabel, Input } from './Searchbar.styled';
-
-
 class Searchbar extends Component {
   state = {
     category: '',
   }
-
-   static propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-  };
 
    handleChange = event => {
      this.setState({ category: event.currentTarget.value.toLowerCase() });
@@ -22,7 +15,6 @@ class Searchbar extends Component {
 
   handleSubmit = event => {
     const { category } = this.state;
-    const { onSubmit } = this.props;
 
      event.preventDefault();
 
@@ -30,7 +22,7 @@ class Searchbar extends Component {
       return toast.info('Please enter category name');
     }
 
-     onSubmit(category);
+     this.props.onSubmit(category);
      this.reset();
    }
 

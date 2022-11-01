@@ -12,9 +12,9 @@ const Gallery = ({ searchResults , onClick}) => {
 
           <GalleryItem
             key={id}
-            webformatURL={webformatURL}
-             tags={tags}
-            onClick={() => onClick(largeImageURL)}
+          tags={tags}
+          webformatURL={webformatURL}
+             onClick={() => onClick(largeImageURL)}
             />
 
       ))}

@@ -26,7 +26,7 @@ export const Title = styled.h1`
                 6px -6px 0 #7BA7AB,
                 -6px  6px 0 #7BA7AB,
                 6px  6px 0 #7BA7AB,
-                -6px  18px 0 #F9F0DA,
+                -6px  18px 0 #7BA7AB,
                 0px  18px 0 #7BA7AB,
                 6px  18px 0 #7BA7AB,
                 0 19px 1px rgba(0,0,0,.1),

@@ -1,11 +1,4 @@
 import React, { Component } from 'react';
-import { AppStyled } from './App.styled'
-// toast
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-// Scroll
-import { animateScroll as Scroll } from 'react-scroll';
 // API
 import * as API from 'components/API/API.js'
 // components
@@ -14,8 +7,14 @@ import LoadMore from 'components/Button/Button';
 import ImageGallery from 'components/ImageGallery/ImageGallery';
 import Titles from 'components/Title/Title';
 import Loader from 'components/Loader/Loader';
+import Container from 'components/Container/Container';
 import Modal from 'components/Modal/Modal';
-import { ModalImage } from 'components/Modal/Modal.styled';
+
+// toast
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+// Scroll
+import { animateScroll as Scroll } from 'react-scroll';
 
 export class App extends Component {
   state = {
@@ -29,16 +28,17 @@ export class App extends Component {
 }
 
 async componentDidUpdate(_, prevState) {
-    const { keyWord, page } = this.state
+  const { keyWord, page } = this.state
 
-   if (prevState.keyWord !== keyWord) {
+if (prevState.keyWord !== keyWord) {
       this.setState({
         status: 'pending',
         searchResults: [],
         page: 1,
       });
       this.fetchRequest();
-    }
+   }
+
   if (page !== prevState.page && page !== 1) {
     this.fetchRequest()
   }
@@ -71,16 +71,12 @@ fetchRequest = async () => {
        this.setState({ error, status: 'rejected' });
       return toast.error(`Whoops something went wrong, please try again later`);
     } finally {
-      //  this.setState({ loader: false });
+       this.setState({ loader: false });
     }
 
 }
 
-
-
-
-
-  submitResultsForm = keyWord => {
+submitResultsForm = keyWord => {
     if (this.state.keyWord !== keyWord) {
        this.setState({
         keyWord: keyWord,
@@ -97,11 +93,11 @@ fetchRequest = async () => {
     this.setState(prevState => ({page: prevState.page + 1,}));
    };
 
-    toggleModal = () => {
+  toggleModal = () => {
     this.setState(({ showModal }) => ({
       showModal: !showModal
-    }))
-    }
+    }));
+  };
 
    onImgClick = event => {
     this.toggleModal();
@@ -120,8 +116,9 @@ fetchRequest = async () => {
 
     return (
       <>
+
         <Searchbar onSubmit={submitResultsForm} />
-        <AppStyled>
+        <Container>
           {status === 'idle' && <Titles />}
           {status === 'rejected' && <Titles />}
           {status === 'pending' && <Loader />}
@@ -130,15 +127,16 @@ fetchRequest = async () => {
 
           {showModal && (
             <Modal onClose={toggleModal}>
-              <ModalImage
+              <img
                 src={largeImage}
                 alt={largeImage.tags}
               />
             </Modal>
           )}
 
-          {searchResults.length > 0 && <LoadMore onClick={onLoadMoreBtn} />}
-      </AppStyled>
+            {searchResults.length > 0 && <LoadMore onClick={onLoadMoreBtn} />}
+            </Container>
+
       <ToastContainer autoClose={3000} />
       </>
     );

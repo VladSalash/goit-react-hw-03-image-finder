@@ -14,11 +14,6 @@ const LoadMore = ({onClick}) => {
   );
 };
 
-// LoadMore.defaultProps = {
-//   onClick: () => null,
-//   children: null,
-// };
-
 LoadMore.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
