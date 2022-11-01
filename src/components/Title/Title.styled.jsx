@@ -7,28 +7,18 @@ export const Title = styled.h1`
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 100px;
-    color:#F9F0DA ;
+    color:#fff ;
   text-align: center;
   font-family: 'Kaushan Script';
   text-shadow: 2px 2px 3px rgba(255,255,255,0.1);
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-shadow:   0px -6px 0 #7BA7AB,
-                0px -6px 0 #7BA7AB,
-                0px  6px 0 #7BA7AB,
-                0px  6px 0 #7BA7AB,
-                -6px  0px 0 #7BA7AB,
-                6px  0px 0 #F9F0DA,
-                -6px  0px 0 #7BA7AB,
-                6px  0px 0 #7BA7AB,
-                -6px -6px 0 #F9F0DA,
-                6px -6px 0 #7BA7AB,
-                -6px  6px 0 #7BA7AB,
-                6px  6px 0 #7BA7AB,
-                -6px  18px 0 #7BA7AB,
-                0px  18px 0 #7BA7AB,
-                6px  18px 0 #7BA7AB,
+  text-shadow:
+                0px -6px 0 #3d3d3d,
+                0px -6px 0 #3d3d3d,
+                0px  6px 0 #3d3d3d,
+                0px  6px 0 #3d3d3d,
                 0 19px 1px rgba(0,0,0,.1),
                 0 0 6px rgba(0,0,0,.1),
                 0 6px 3px rgba(0,0,0,.3),
