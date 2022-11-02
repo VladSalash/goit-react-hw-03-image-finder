@@ -15,14 +15,12 @@ export const Overlay = styled.div`
 
 export const ModalBox = styled.div`
   max-width: calc(100vw - 48px);
-    max-height: calc(100vh - 24px);
-
+  max-height: calc(100vh - 24px);
 `;
 
 export const ModalImage = styled.div`
-  background-color: #F9F0DA;
-border: 1px solid #A3D0C3;
-width: 1200px;
-height: 800px;
+  background-color: #f9f0da;
+  border: 1px solid #a3d0c3;
+  width: 1200px;
+  height: 800px;
 `;
-

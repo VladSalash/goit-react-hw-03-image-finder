@@ -1,11 +1,10 @@
 import React from 'react';
-import {LoaderContainer} from './Loader.styled';
 import { Oval } from 'react-loader-spinner';
-// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { LoaderContainer } from './Loader.styled';
 
 const Loader = () => {
   return (
-     <LoaderContainer>
+    <LoaderContainer>
       <Oval
         ariaLabel="loading-indicator"
         height={100}
@@ -16,10 +15,7 @@ const Loader = () => {
         secondaryColor="#A3D0C3"
       />
     </LoaderContainer>
-
-
   );
 };
 
 export default Loader;
-

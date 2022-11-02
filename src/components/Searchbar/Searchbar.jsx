@@ -7,54 +7,51 @@ import 'react-toastify/dist/ReactToastify.css';
 class Searchbar extends Component {
   state = {
     category: '',
-  }
+  };
 
-   handleChange = event => {
-     this.setState({ category: event.currentTarget.value.toLowerCase() });
-    };
+  handleChange = event => {
+    this.setState({ category: event.currentTarget.value.toLowerCase() });
+  };
 
   handleSubmit = event => {
     const { category } = this.state;
 
-     event.preventDefault();
+    event.preventDefault();
 
-      if (category.trim() === '') {
+    if (category.trim() === '') {
       return toast.info('Please enter category name');
     }
 
-     this.props.onSubmit(category);
-     this.reset();
-   }
+    this.props.onSubmit(category);
+    this.reset();
+  };
 
   reset = () => {
     this.setState({
-    category: '',
+      category: '',
     });
-  }
-
+  };
 
   render() {
-  const { category } = this.state;
-   return (
-    <Header>
-  <Form onSubmit={this.handleSubmit}>
-    <Input
-           value={category}
-           onChange={this.handleChange}
-           type="text"
-           autoComplete="off"
+    const { category } = this.state;
+    return (
+      <Header>
+        <Form onSubmit={this.handleSubmit}>
+          <Input
+            value={category}
+            onChange={this.handleChange}
+            type="text"
+            autoComplete="off"
             autoFocus
-      placeholder="Search images and photos"
-         />
-         <Button type="submit" >
-      <ButtonLabel>Search</ButtonLabel>
-    </Button>
-  </Form>
-</Header>
-  )
+            placeholder="Search images and photos"
+          />
+          <Button type="submit">
+            <ButtonLabel>Search</ButtonLabel>
+          </Button>
+        </Form>
+      </Header>
+    );
   }
-
 }
-
 
 export default Searchbar;
